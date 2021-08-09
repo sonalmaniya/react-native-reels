@@ -6,6 +6,7 @@ import {setItemInStorage, getItemFromStorage} from '../Utils/Storage';
 
 const APP_THEME = 'appTheme';
 
+// App Conext for App Theme, display height and Video Volume
 export const AppContext = createContext({
   appTheme: DEFAULT_THEME,
   initializeAppTheme: () => {},

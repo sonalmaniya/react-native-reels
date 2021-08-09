@@ -6,7 +6,7 @@ import CommonStyle from '../Theme/CommonStyle';
 import {height, isIOS} from '../Utils/Constant';
 import {data} from '../Utils/data';
 
-const Home = ({route}) => {
+const Home = () => {
   const {displayHeight, setDisplayHeight} = useContext(AppContext);
   const refFlatList = useRef();
   const [scrollY] = useState(new Animated.Value(0));
@@ -62,6 +62,7 @@ const Home = ({route}) => {
       <FeedRow
         item={item}
         isNext={isNext}
+        index={index}
         transitionAnimation={transitionAnimation}
         visible={scrollInfo}
         isVisible={scrollIndex === index}

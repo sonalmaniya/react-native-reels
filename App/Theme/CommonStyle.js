@@ -15,6 +15,13 @@ const CommonStyle = StyleSheet.create({
     flex: 1,
     backgroundColor: 'transparent',
   },
+  row: {
+    flexDirection: 'row',
+  },
+  center: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 export default CommonStyle;

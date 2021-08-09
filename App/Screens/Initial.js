@@ -10,6 +10,7 @@ const Initial = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
+    // Here we can decide the next screen
     goToNextScreen('Home');
   }, []);
 

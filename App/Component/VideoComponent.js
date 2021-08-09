@@ -2,12 +2,18 @@ import React, {useContext, useEffect, useRef} from 'react';
 import {View, StyleSheet} from 'react-native';
 import Video from 'react-native-video';
 import {AppContext} from '../Context';
+import CommonStyle from '../Theme/CommonStyle';
 import {width} from '../Utils/Constant';
+import {VolumeButton} from './AppButton';
 
 const styles = StyleSheet.create({
   videoView: {
     width,
     opacity: 1,
+  },
+  videoOuter: {
+    width,
+    ...CommonStyle.center,
   },
 });
 
@@ -16,11 +22,11 @@ const VideoComponent = ({post, isVisible, isNext}) => {
   const {isMute} = useContext(AppContext);
   const videoRef = useRef(null);
   const {url} = post;
-  const {videoView} = styles;
+  const {videoOuter, videoView} = styles;
 
   useEffect(() => {
     if (!isVisible && isNext && videoRef) {
-      videoRef.current.seek(0);
+      // videoRef.current.seek(0);
     }
   }, [isVisible, isNext]);
 
@@ -29,7 +35,7 @@ const VideoComponent = ({post, isVisible, isNext}) => {
   };
 
   return (
-    <View style={[styles.videoOuter, {height: displayHeight}]}>
+    <View style={[videoOuter, {height: displayHeight}]}>
       <Video
         ref={videoRef}
         fullscreenAutorotate={true}
@@ -44,6 +50,7 @@ const VideoComponent = ({post, isVisible, isNext}) => {
         paused={!isVisible}
         ignoreSilentSwitch={'ignore'}
       />
+      <VolumeButton />
     </View>
   );
 };
